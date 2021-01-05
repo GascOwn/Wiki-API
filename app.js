@@ -1,4 +1,5 @@
 //jshint esversion:6
+require('dotenv').config();
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -18,7 +19,7 @@ app.use("/articles", articles);
 
 // Connection to database
 
-mongoose.connect("mongodb://localhost:27017/wikidb", {
+mongoose.connect(process.env.DB_HOST, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
